@@ -1,0 +1,64 @@
+<?php
+
+use Drupal\commerce_review_notify\Form\AdminConfigForm;
+
+/**
+ * Implements hook_cron().
+ */
+function commerce_review_notify_cron()
+{
+
+  // Create the cleanup queue.
+  $queue = \Drupal::queue('commerce_review_notify_cleanup');
+  \Drupal::logger('commerce_review_notify')->debug('commerce_review_notify_cleanup ' . $queue->numberOfItems());
+  if ($queue->numberOfItems() === 0) {
+    $purge_interval = AdminConfigForm::getValuesFromConfig()['purge_interval'];
+    $purge_time = strtotime('now -' . $purge_interval . 'days');
+
+    $purge_entities = \Drupal::entityQuery('commerce_review_notify')
+      ->condition('sent_time', NULL, 'IS NOT')
+      ->condition('sent_time', $purge_time, '<')
+      ->execute();
+
+    foreach ($purge_entities as $entity) {
+      $notification = \Drupal::entityTypeManager()->getStorage('commerce_review_notify')->load($entity);
+      $queue->createItem($notification);
+    }
+
+  }
+  // Create the job queue.
+  $queue = \Drupal::queue('commerce_review_notify');
+  \Drupal::logger('commerce_review_notify')->debug('commerce_review_notify ' . $queue->numberOfItems());
+  if ($queue->numberOfItems() == 0) {
+    $sending_interval = AdminConfigForm::getValuesFromConfig()['sending_interval'];
+    $sending_time = strtotime('now -' . $sending_interval . 'days');
+
+    $result = \Drupal::entityQuery('commerce_review_notify')
+      ->condition('sent_time', NULL, 'IS')
+      ->condition('submit_time', $sending_time, '<')
+      ->sort('submit_time')
+      ->range(0, 500)
+      ->execute();
+
+    foreach ($result as $record) {
+      $notification = \Drupal::entityTypeManager()->getStorage('commerce_review_notify')->load($record);
+      if ($notification) {
+        $queue->createItem($notification);
+      }
+    }
+  }
+}
+
+function commerce_review_notify_theme($existing, $type, $theme, $path): array
+{
+  return [
+    'mail_review_notify' => [
+      'variables' => [
+        'order_entity' => NULL,
+        'name' => NULL,
+        'comment_links' => NULL,
+      ],
+    ],
+  ];
+}
+

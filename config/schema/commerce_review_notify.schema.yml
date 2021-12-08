@@ -1,0 +1,13 @@
+commerce_review_notify.config:
+  type: config_entity
+  label: 'Admin Configuration'
+  mapping:
+    email_subject:
+      type: string
+      label: 'E-mail subject'
+    purge_interval:
+      type: number
+      label: 'Purge interval'
+    sending_interval:
+      type: number
+      label: 'Sending interval'

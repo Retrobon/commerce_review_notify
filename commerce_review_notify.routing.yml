@@ -1,0 +1,20 @@
+entity.commerce_review_notify.edit_form:
+  path: '/admin/structure/commerce_review_notify'
+  defaults:
+    _entity_list: 'commerce_review_notify'
+    _title: 'Review Notifications'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+
+commerce_review_notify.admin_config_form:
+  path: '/admin/commerce/config/review/review-notifications'
+  defaults:
+    _form: '\Drupal\commerce_review_notify\Form\AdminConfigForm'
+    _title: 'Review Notifications Settings'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

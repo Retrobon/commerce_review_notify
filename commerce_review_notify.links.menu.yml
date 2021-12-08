@@ -1,0 +1,16 @@
+commerce_review_notify.admin_config_form:
+  title: 'Review notification settings'
+  route_name: commerce_review_notify.admin_config_form
+  description: 'Review notification settings'
+  weight: 7
+  parent: commerce.configuration
+
+commerce_review_notify.default_list:
+  title: 'List of Review Notify'
+  route_name: entity.commerce_review_notify.edit_form
+  description: 'List of Review Notify'
+  parent: commerce.admin_commerce
+  weight: 99
+
+
+

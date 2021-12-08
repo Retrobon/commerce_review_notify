@@ -1,0 +1,93 @@
+<table style="width: 600px;max-width: 600px; margin: 30px auto 0 auto;">
+  <tr style="color: #fff">
+    <td align="center">
+      <img style="max-width: 100px; margin-left: 20px;"
+           src="https://cf88.shop/themes/clean/static/assets/images/icons/logo.png" alt="">
+    </td>
+  </tr>
+  <tr style="height: 23px;"></tr>
+  <tr>
+    <td colspan="2">
+      <div
+        style="width: 100%; height: 23px; background: #fff; border-top-right-radius: 23px; border-top-left-radius: 23px;">
+      </div>
+    </td>
+  </tr>
+</table>
+<table style="width: 600px;max-width: 600px;background: #fff;margin: 0 auto;text-align: left;" cellspacing="0">
+  <tr>
+    <td class="pl-30" valign="center">
+      <p class="customer-text" style="margin-bottom: 25px;">Здравствуйте, {{ name }}!</p>
+      <p style="font-size: 17px;line-height: 1; margin-bottom: 33px;">Благодарим вас за доверие к нашему интернет-магазину.</p>
+      <p style="line-height: 1; margin-bottom: 33px;">
+        Мы не останавливаемся в развитии и постоянно стремимся сделать наш магазин удобнее для покупателя. <br><br>
+        Если Вас не затруднит, пожалуйста, напишите отзыв пусть Ваш голос будет услышан.<br><br>
+        Написать отзыв – легко и просто!<br>
+        Кликните по ссылке</p>
+
+      <p>
+        {% for comment_link in comment_links %}
+        {{ comment_link }} <br><br>
+        {% endfor %}
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" style="padding-top: 25px;">
+      <table style="width: 100%;">
+        <tr>
+          <td class="pl-35" style="width: 32px; padding-left: 35px;padding-bottom: 35px;">
+            <img style="width: 32px;" src="https://cf88.shop/mail/schedule.png">
+          </td>
+          <td style="padding-right: 35px;padding-left: 20px;padding-bottom: 35px;">
+            График работы <br>Пн-Пт: 10:00 - 18:00<br>Сб-Вс: выходные
+          </td>
+
+          <td colspan="2" style="padding-top: 0; padding-bottom: 35px; padding-right: 35px;">
+            <a href="viber://pa?chatURI=cf88_shop"
+               style="display: inline-block; width: 29px; height: 29px; margin-right: 7px;">
+              <img src="https://cf88.shop/mail/icon-viber.png" alt="">
+            </a>
+            <a href="https://t.me/cf88shop_bot?start=subscribe_"
+               style="display: inline-block; width: 29px; height: 29px; margin-right: 7px;">
+              <img src="https://cf88.shop/mail/telegram.png" alt="">
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=380954997656"
+               style="display: inline-block; width: 29px; height: 29px; margin-right: 7px;">
+              <img src="https://cf88.shop/mail/icon-whatsapp.png" alt="">
+            </a>
+            <a href="https://www.instagram.com/cf88_store/"
+               style="display: inline-block; width: 29px; height: 29px; margin-right: 7px;">
+              <img src="https://cf88.shop/mail/instagram.png" alt="">
+            </a>
+        </tr>
+        <tr>
+          <td class="pl-35" style="width: 32px; padding-left: 35px;padding-bottom: 35px;">
+            <img style="width: 32px;" src="https://cf88.shop/themes/clean/static/assets/images/icons/ic-phone2.svg">
+          </td>
+          <td style="padding-right: 35px;padding-left: 20px;padding-bottom: 35px;">
+            <div class="phone-value" style="font-weight:bold;line-height: 20px;">
+              <a style="font-size: 16px" href="tel:+390933303909">(093) 330 - 39 - 09</a>
+            </div>
+          </td>
+          <td style="width: 32px; padding-left: 35px;padding-bottom: 35px;">
+            <img style="width: 32px;" src="https://cf88.shop/mail/internet.png">
+          </td>
+          <td style="padding-top: 0; padding-bottom: 35px; padding-right: 35px;">
+            <div class="phone-value" style="font-weight:bold;line-height: 20px;">
+              <a style="font-size: 16px" href="https://cf88.shop">cf88.shop</a>
+            </div>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table style="width: 600px;max-width: 600px; margin: 0 auto 30px auto;">
+  <tr>
+    <td colspan="2">
+      <div
+        style="width: 100%; height: 23px; background: #fff; border-bottom-right-radius: 23px; border-bottom-left-radius: 23px;">
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,6 @@
+services:
+  commerce_review_notify.order_completed_subscriber:
+    class: Drupal\commerce_review_notify\EventSubscriber\OrderCompleteSubscriber
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: event_subscriber }
